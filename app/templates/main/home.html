@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+<a class="btn btn-info my-2" href="/create_book">+ new book</a>
+<table class="table">
+    <thead class="thead-dark">
+        <th>#</th>
+        <th>id</th>
+        <th>title</th>
+        <th>action</th>
+    </thead>
+    <tbody>
+        {% for book in books %}
+        <tr>
+            <td>{{loop.index}}</td>
+            <td>{{book.id}}</td>
+            <td>{{book.title}}</td>
+            <td>
+                <form action="/delete_book" method="post">
+                    <input type="hidden" name="id" value="{{book.id}}">
+                    <button class="btn btn-danger btn-md" type="submit">delete</button>
+                </form>
+                <a class="btn btn-warning btn-md" href="/edit_book/{{book.id}}">Edit</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock content %}

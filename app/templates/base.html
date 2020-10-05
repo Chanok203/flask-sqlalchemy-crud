@@ -1,0 +1,23 @@
+<html>
+
+<head>
+
+    <!-- Bootstrap 4.5 -->
+    {% include "css.html" %}
+</head>
+
+<body>
+    <!-- Bavbar -->
+    {% include "navbar.html" %}
+
+    <div class="container mt-3">
+
+        {% block content %}
+        CONTENT
+        {% endblock content %}
+
+    </div>
+
+</body>
+
+</html>
